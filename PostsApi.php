@@ -10,38 +10,38 @@ class PostsApi
         $this->fetcher = new JsonFetcher($domain . "/posts");
     }
 
-    public function All(): string
+    public function all()
     {
-        return $this->fetcher->Get();
+        return $this->fetcher->get();
     }
 
-    public function One($id): string
+    public function one($id)
     {
         if (is_null($id) || $id === "") {
             return "incorrect id";
         }
 
-        return $this->fetcher->Get("/" . $id);
+        return $this->fetcher->get("/" . $id);
     }
 
-    public function Create($payload): string
+    public function create($payload)
     {
-        return $this->fetcher->Post($payload);
+        return $this->fetcher->post($payload);
     }
-    public function Remove($id): string
-    {
-        if (is_null($id) || $id === "") {
-            return "incorrect id";
-        }
-
-        return $this->fetcher->Delete("/" . $id);
-    }
-    public function Update($id, $payload): string
+    public function remove($id)
     {
         if (is_null($id) || $id === "") {
             return "incorrect id";
         }
 
-        return $this->fetcher->Update("/".$id, $payload);
+        return $this->fetcher->delete("/" . $id);
+    }
+    public function update($id, $payload)
+    {
+        if (is_null($id) || $id === "") {
+            return "incorrect id";
+        }
+
+        return $this->fetcher->update("/".$id, $payload);
     }
 }

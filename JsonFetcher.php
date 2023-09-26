@@ -5,12 +5,12 @@ class JsonFetcher
 {
     private string $link;
 
-    public function __construct($link)
+    public function __construct(string $link)
     {
         $this->link = $link;
     }
 
-    public function Get($path = "")
+    public function get($path = "")
     {
         $curlLink = $this->link . $path;
         $ch = curl_init($curlLink);
@@ -22,7 +22,7 @@ class JsonFetcher
         return $res;
     }
 
-    public function Post($payload = [])
+    public function post($payload = [])
     {
         $ch = curl_init($this->link);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -35,7 +35,7 @@ class JsonFetcher
         return $res;
     }
 
-    public function Update($path = "", $payload = [])
+    public function update($path = "", $payload = [])
     {
         $ch = curl_init($this->link . $path);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -48,7 +48,7 @@ class JsonFetcher
         return $res;
     }
 
-    public function Delete($path)
+    public function delete($path = "")
     {
         $ch = curl_init($this->link . $path);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');

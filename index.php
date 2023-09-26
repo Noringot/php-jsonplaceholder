@@ -6,8 +6,8 @@ require_once "UsersApi.php";
 $DOMAIN = "https://jsonplaceholder.typicode.com";
 
 $postsApi = new PostsApi($DOMAIN);
-echo $postsApi->One(1); // Get post by id
-echo $postsApi->All(); // Get all post
+echo $postsApi->one(1); // Get post by id
+echo $postsApi->all(); // Get all post
 
 $payloadToCreate = [ // Data for creating a new post
     "title" => 'foo',
@@ -15,8 +15,8 @@ $payloadToCreate = [ // Data for creating a new post
     "userId" => 1,
 ];
 
-echo $postsApi->Create($payloadToCreate); // Create post with data
-$postsApi->Remove(1); // Delete post by id
+echo $postsApi->create($payloadToCreate); // Create post with data
+$postsApi->remove(1); // Delete post by id
 
 $payloadToUpdate = [ // Data for updating post
     "id" => 1,
@@ -30,7 +30,7 @@ echo $postsApi->Update(1, $payloadToUpdate); // Update post with new data
 
 $usersApi = new UsersApi($DOMAIN);
 
-echo $usersApi->GetUsers(); // Get all users
-echo $usersApi->GetUser(1); // Get user by id
-echo $usersApi->GetPosts(1); // Get user's posts
-echo $usersApi->GetTodos(1); // Get user's todos
+echo $usersApi->getUsers(); // Get all users
+echo $usersApi->getUser(1); // Get user by id
+echo $usersApi->getPosts(1); // Get user's posts
+echo $usersApi->getTodos(1); // Get user's todos

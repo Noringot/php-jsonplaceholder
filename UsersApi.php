@@ -10,23 +10,23 @@ class UsersApi
         $this->fetcher = new JsonFetcher($domain . "/users"); // "/url"
     }
 
-    public function GetUsers(): string
+    public function getUsers()
     {
-        return $this->fetcher->Get();
+        return $this->fetcher->get();
     }
 
-    public function GetUser($id): string
+    public function getUser($id)
     {
-        return $this->fetcher->Get("/".$id);
+        return $this->fetcher->get("/".$id);
     }
 
-    public function GetPosts($id): string
+    public function getPosts($id)
     {
-        return $this->fetcher->Get("/" . $id . "/posts");
+        return $this->fetcher->get("/" . $id . "/posts");
     }
 
-    public function GetTodos($id): string
+    public function getTodos($id)
     {
-        return $this->fetcher->Get("/" . $id . "/todos");
+        return $this->fetcher->get("/" . $id . "/todos");
     }
 }
