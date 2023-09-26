@@ -25,7 +25,7 @@ $payloadToUpdate = [ // Data for updating post
     "userId" => 1,
 ];
 
-echo $postsApi->Update(1, $payloadToUpdate); // Update post with new data
+echo $postsApi->update(1, $payloadToUpdate); // Update post with new data
 
 
 $usersApi = new UsersApi($DOMAIN);
